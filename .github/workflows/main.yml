@@ -1,0 +1,23 @@
+name: Learning Record CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: List files
+        run: ls -R
+
+      - name: Check Markdown files
+        run: |
+          echo "Checking learning files..."
+          find . -name "*.md" -print
+          echo "All good ✅"
